@@ -52,18 +52,19 @@ jobs:
 
     - name: Install dependencies
       if: matrix.os != 'macos-latest'
-      run: |
-        sudo apt-get install python3-setuptools -y
-        pip3 install --upgrade pip
-        pip3 install -e .
-        pip3 install -r requirements.txt
+        run: |
+          sudo apt-get install python3-setuptools -y
+          pip3 install --upgrade pip
+          pip3 install -e .
+          pip3 install -r requirements.txt
       else:
-        xcode-select --install
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        brew install python3-setuptools -y
-        pip3 install --upgrade pip
-        pip3 install -e .
-        pip3 install -r requirements.txt
+        run: |
+          xcode-select --install
+          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+          brew install python3-setuptools -y
+          pip3 install --upgrade pip
+          pip3 install -e .
+          pip3 install -r requirements.txt
 
     - name: Set a run prefix
       run : |
