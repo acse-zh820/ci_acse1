@@ -61,9 +61,6 @@ jobs:
     - name: Install mac dependencies
       if: matrix.os == 'macos-latest'
       run: |
-          xcode-select --install
-          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-          brew install python3-setuptools -y
           pip3 install --upgrade pip
           pip3 install -e .
           pip3 install -r requirements.txt
