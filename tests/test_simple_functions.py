@@ -1,6 +1,6 @@
 import pytest
 
-from simple_functions import my_sum, factorial
+from simple_functions import my_sum, factorial, average
 
 
 class TestSimpleFunctions(object):
@@ -24,3 +24,11 @@ class TestSimpleFunctions(object):
         '''Test our factorial function'''
         answer = factorial(number)
         assert answer == expected
+
+    @pytest.mark.parametrize('n, expected', [
+        ([1, 2, 3], 2),
+        ([4, 6, 8], 6)
+    ])
+    def test_average(self, n, expected):
+        result = average(n)
+        assert result == expected
